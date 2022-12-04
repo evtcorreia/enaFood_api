@@ -4,7 +4,9 @@ import express from "express";
 import categorias from "./categoriasRoute.js"
 import produtos from "./produtosRoute.js"
 import statusProdutos from "./statusProdutosRoute.js"
-import usuarios from "./usuariosRoute"
+import usuarios from "./usuariosRoute.js"
+import sacolas from "./sacolasRoute.js"
+import itensSacolas from "./itensSacolasRoute.js"
 
 const routes = (app) => {
     app.route('/').get((req, res) => {
@@ -16,7 +18,9 @@ const routes = (app) => {
         categorias,
         produtos,
         statusProdutos,
-        usuarios
+        usuarios,
+        sacolas,
+        itensSacolas
        
     )
 } 
