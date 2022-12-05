@@ -14,7 +14,7 @@ const produtoSchema = new mongoose.Schema(
         },
         status: {
             type: mongoose.Schema.Types.ObjectId,
-            ref:"status_produtos",
+            ref:"statusProduto",
             required:true
         },
         estoque:{

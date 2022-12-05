@@ -7,7 +7,11 @@ class ProdutoController{
 
     static listaProdutos = (req, res)=>{
 
-        produtos.find((err, produtos)=>{
+        produtos.find()
+            .populate('loja')
+            .populate('categoria')
+            //.populate('statusProduto')                
+            .exec((err, produtos)=>{
             res.status(200).json(produtos)
         })
     }

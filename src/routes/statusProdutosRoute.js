@@ -5,7 +5,8 @@ import StatusProdutos from "../controllers/statusProdutosController.js";
 const router = express.Router();
 
 router
-    .get('/stausProdutos', StatusProdutos.listaStatusProdutos)
+    .get('/statusProdutos', StatusProdutos.listaStatusProdutos)
+    .post('/stausProdutos', StatusProdutos.cadastraStatus)
 
 
 export default router
