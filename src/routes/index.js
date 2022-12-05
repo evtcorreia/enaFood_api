@@ -9,6 +9,7 @@ import pagamentos from "./pagamentosRoute.js"
 import tipoPagamento from "./tipoPagamentosRoute.js"
 import statusPedido from "./statusPedidoRoute.js"
 import pedidos from "./pedidosRoute.js"
+import lojas from "./lojasRoute.js"
 
 const routes = (app) => {
     app.route('/').get((req, res) => {
@@ -26,7 +27,8 @@ const routes = (app) => {
         pagamentos,
         tipoPagamento,
         statusPedido, 
-        pedidos
+        pedidos,
+        lojas
        
     )
 } 

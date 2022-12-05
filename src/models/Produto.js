@@ -26,6 +26,11 @@ const produtoSchema = new mongoose.Schema(
             ref:"categorias",
             required:true
         },
+        loja:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"lojas",
+            required:true
+        },
 
         D_E_L_E_T: {
             type: String
