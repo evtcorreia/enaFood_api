@@ -26,6 +26,10 @@ class CategoriaController{
 
     static buscaCategoriaPorId = async(req, res)=>{
 
+        const { id } = req.params
+
+        categorias.findById
+
     }
 
     static alteraCategoria = async(req, res)=>{
