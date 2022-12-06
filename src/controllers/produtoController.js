@@ -9,6 +9,7 @@ class ProdutoController{
 
         const {id} = req.params
         produtos.find( {loja: id})
+            .where('estoque').gt(0)
             //.populate('loja' /* {_id:id} */ )
             //.populate('categoria')
             //.populate('statusProdutos')                
@@ -44,6 +45,44 @@ class ProdutoController{
                 res.status(201).send(produto.toJSON())
             }
         })
+    }
+
+    static abataerEstoque = (lista)=>{
+
+        
+       
+        console.log(lista[0].quantidadePedido);
+
+
+        for(var i = 0; i < lista.length;i++){
+            produtos.findById(lista[i].idProduto)
+                .exec((err, produto)=>{
+         
+            
+            
+            const estoqueAtual = produto.estoque - parseInt(lista[0].quantidadePedido)
+            const id = produto._id.valueOf()
+
+            const estoque  = parseInt(estoqueAtual)
+
+            console.log('lista');
+                    console.log(id);
+
+            produtos.findByIdAndUpdate(id, { estoque: estoque}, (err)=>{
+                if(!err){
+
+                    console.log( {message:  'produto alterado com sucesso'})
+                    
+                }else{
+                    return console.log( {message:  `${err.message} - não foi possivel alterar a quantiodade de produtos` })
+                }
+            })
+
+        })
+
+        }
+
+        
     }
     
 }

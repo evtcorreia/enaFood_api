@@ -1,4 +1,5 @@
 import itensSacolas from "../models/itensSacola.js";
+import ProdutoController from "./produtoController.js";
 
 
 class ItensSacolas{
@@ -96,6 +97,63 @@ class ItensSacolas{
                 res.status(500).send({message: `${err.message} - não foi possivel alterar a quantiodade de produtos`})
             }
         })
+    }
+
+    static itensSacola = async (id)=>{
+
+
+        //const { id } = req.params
+        //const id = "638f0f1a55bf3c0a773cf585"
+
+       itensSacolas.find()
+        .limit(20)
+        .populate({
+            path:'sacola',
+            populate:'usuario',
+            
+            match:{
+                _id:id
+            }
+        })
+        .populate({
+            path:'produto',
+            populate:{
+                path: 'status'
+            }
+        })
+        //.populate('status')
+        .exec((err, items)=>{
+
+           //console.log(items[0].sacola);
+            const listaNaSacola  = []
+            
+
+            for(var i = 0; i < items.length;i++){
+
+                try {
+                    if(items[i].sacola !== null){
+                        
+                        console.log(items);
+
+                        let obj = 
+                       
+                        listaNaSacola.push({idProduto: items[i].produto._id.valueOf(), quantidadePedido: items[i].quantidade})
+                    }
+                } catch (error) {
+                    
+                    
+                    //res.status(500).json({message: `${err.message} - aconteceu algum problema`})
+                    return
+                    
+                }
+                
+                
+            }
+            
+            ProdutoController.abataerEstoque(listaNaSacola)
+           return listaNaSacola
+        })
+
     }
 }
 

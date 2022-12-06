@@ -1,4 +1,5 @@
 import pedidos from "../models/Pedido.js";
+import ItensSacolas from "./itensSacolasController.js";
 
 class PedidosController{
 
@@ -19,6 +20,9 @@ class PedidosController{
             if(err){
                 res.status(500).send({message: `${err.message} - nao foi possivel cadastrar a venda verifique as informações`})
             }else{
+
+                console.log(pedido.sacola.valueOf());
+                ItensSacolas.itensSacola(pedido.sacola.valueOf())
                 res.status(201).send(pedido.toJSON())
             }
         })
