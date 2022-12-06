@@ -9,6 +9,14 @@ const lojaSchema = mongoose.Schema(
         loja:{
             type:String,
             required:true
+        },
+        cidade:{
+            type:String,
+            required:true
+        },
+        uf:{
+            type:String,
+            required:true
         }
     }
 )

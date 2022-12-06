@@ -17,7 +17,7 @@ const itensSacolaSchema = mongoose.Schema(
             required: true,
         },
         quantidade:{
-            type:mongoose.Schema.Types.ObjectId,
+            type:Number,
             required: true
         },
         valor:{

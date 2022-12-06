@@ -14,7 +14,7 @@ const produtoSchema = new mongoose.Schema(
         },
         status: {
             type: mongoose.Schema.Types.ObjectId,
-            ref:"statusProduto",
+            ref:"statusProdutos",
             required:true
         },
         estoque:{
@@ -27,8 +27,9 @@ const produtoSchema = new mongoose.Schema(
             required:true
         },
         loja:{
-            type:mongoose.Schema.Types.ObjectId,
-            ref:"lojas",
+            type: String,
+            /* type:mongoose.Schema.Types.ObjectId,
+            ref:"lojas", */
             required:true
         },
 

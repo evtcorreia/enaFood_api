@@ -25,6 +25,19 @@ class LojaController{
 
         })
     }
+
+    static listaProdutosPorLoja = async (req, res)=>{
+
+        const id = '638d603141fab5af269d4e4b'
+
+        lojas.findById({_id: id})
+            .populate('produto')
+            //.populate('categoria')
+            //.populate('statusProdutos')                
+            .exec((err, lojas)=>{
+                res.status(200).json(lojas)
+            })
+    }
 }
 
 

@@ -11,6 +11,11 @@ const sacolaSchema = mongoose.Schema(
             ref: 'usuarios',
             required: true
         },
+        loja:{
+            type: mongoose.Schema.Types.ObjectId,
+            ref:'lojas',
+            required:true
+        },
         total:{
             type: mongoose.Schema.Types.Decimal128,
             required:true

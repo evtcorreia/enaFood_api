@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 router
-    .get("/produtos", ProdutoController.listaProdutos)
+    .get("/produtos/:id", ProdutoController.listaProdutos)
     .post("/produto", ProdutoController.cadastraProduto)
 
 
