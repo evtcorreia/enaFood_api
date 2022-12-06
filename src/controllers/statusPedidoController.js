@@ -8,7 +8,7 @@ class Status_PedidoController{
         status_pedidos.find()        
             .exec((err, status) => {
 
-            res.status(200).json(livros)
+            res.status(200).json(status)
         })
     }
 
@@ -39,7 +39,7 @@ class Status_PedidoController{
 
     static deletaStatusPedido = (req, res) => {
         const { id } = req.params;
-        livros.findByIdAndDelete(id, (err) => {
+        status_pedidos.findByIdAndDelete(id, (err) => {
             if (!err) {
                 res.status(200).send({ message: "Status removido com sucesso" })
             } else {

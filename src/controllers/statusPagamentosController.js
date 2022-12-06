@@ -6,7 +6,7 @@ class StatussPagamento{
 
     static listarStatus = (req, res) => {
 
-        livros.find()            
+        status_pagamento.find()            
             .exec((err, status) => {
 
                 res.status(200).json(status)
