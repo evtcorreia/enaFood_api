@@ -7,6 +7,8 @@ const router = express.Router();
 router
     .get("/produtos/:id", ProdutoController.listaProdutos)
     .post("/produto", ProdutoController.cadastraProduto)
+    .put("/produto/:id", ProdutoController.atualizarProduto)
+    .delete("/produto/:id", ProdutoController.deletaProduto)
 
 
 

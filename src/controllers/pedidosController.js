@@ -28,6 +28,29 @@ class PedidosController{
         })
 
     }
+
+    static atualizarPedido = (req, res) => {
+        const { id } = req.params;
+        pedidos.findByIdAndUpdate(id, { $set: req.body }, (err) => {
+            if (!err) {
+                res.status(200).send({ message: "Pedido atualizado com sucesso" })
+            } else {
+                res.status(500).send({ message: err.message })
+            }
+        })
+    }
+
+
+    static deletaPedido = (req, res) => {
+        const { id } = req.params;
+        pedidos.findByIdAndDelete(id, (err) => {
+            if (!err) {
+                res.status(200).send({ message: "Pedido removido com sucesso" })
+            } else {
+                res.send(500).send(err.message)
+            }
+        })
+    }
 }
 
 export default PedidosController

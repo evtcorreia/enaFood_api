@@ -28,15 +28,39 @@ class CategoriaController{
 
         const { id } = req.params
 
-        categorias.findById
+        categorias.findById(id,(err, categorias)=>{
+            if (err) {
+                res.status(400).send({ message: `${err.message} - categoria nao encontrada` })
+            } else {
+                res.status(200).send(categoria)
+            }
+        })
 
     }
 
     static alteraCategoria = async(req, res)=>{
 
+        const { id } = req.params;
+        categorias.findByIdAndUpdate(id, { $set: req.body }, (err) => {
+            if (!err) {
+                res.status(200).send({ message: "categoria atualizada com sucesso" })
+            } else {
+                res.status(500).send({ message: err.message })
+            }
+        })
+
     }
 
     static deletaCategoria = async(req, res)=>{
+
+        const { id } = req.params;
+        categorias.findByIdAndDelete(id, (err) => {
+            if (!err) {
+                res.status(200).send({ message: "Categoria removida sucesso" })
+            } else {
+                res.send(500).send(err.message)
+            }
+        })
 
     }
 }

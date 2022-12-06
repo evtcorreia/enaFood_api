@@ -9,6 +9,8 @@ const router = express.Router()
 router
     .get('/pagamentos', PagamentoController.listaPagamentos)
     .post('/pagamento', PagamentoController.fazerPagamento)
+    .put('/pagamento/:id', PagamentoController.atualizarPagamento)
+    .delete('/pagamento/:id', PagamentoController.deletaPagamento)
 
 
 

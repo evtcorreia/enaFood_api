@@ -38,6 +38,30 @@ class LojaController{
                 res.status(200).json(lojas)
             })
     }
+    
+    static atualizaLoja = (req, res)=>{
+        const { id } = req.params;
+        lojas.findByIdAndUpdate(id, { $set: req.body }, (err) => {
+            if (!err) {
+                res.status(200).send({ message: "Loja atualizada com sucesso" })
+            } else {
+                res.status(500).send({ message: err.message })
+            }
+        })
+    }
+
+    static deletaLoja = ()=>{
+
+        const { id } = req.params;
+        lojas.findByIdAndDelete(id, (err) => {
+            if (!err) {
+                res.status(200).send({ message: "Loja Removida com sucesso" })
+            } else {
+                res.send(500).send(err.message)
+            }
+        })
+
+    }
 }
 
 

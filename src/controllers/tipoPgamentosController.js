@@ -25,6 +25,29 @@ class Tipo_PagamentoController{
             }
         })
     }
+
+    static atualizarTipoPagamento = (req, res) => {
+        const { id } = req.params;
+        tipo_pagamentos.findByIdAndUpdate(id, { $set: req.body }, (err) => {
+            if (!err) {
+                res.status(200).send({ message: "TipoPagamento atualizado com sucesso" })
+            } else {
+                res.status(500).send({ message: err.message })
+            }
+        })
+    }
+
+
+    static deletaTipoPagamento = (req, res) => {
+        const { id } = req.params;
+        tipo_pagamentos.findByIdAndDelete(id, (err) => {
+            if (!err) {
+                res.status(200).send({ message: "TipoPagamento removido com sucesso" })
+            } else {
+                res.send(500).send(err.message)
+            }
+        })
+    }
 }
 
 

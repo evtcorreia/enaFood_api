@@ -22,6 +22,31 @@ class StatusProdutos{
             }
         })
     }
+
+    static atualizarStatus = (req, res) => {
+        const { id } = req.params;
+        statusProdutos.findByIdAndUpdate(id, { $set: req.body }, (err) => {
+            if (!err) {
+                res.status(200).send({ message: "Status atualizado com sucesso" })
+            } else {
+                res.status(500).send({ message: err.message })
+            }
+        })
+    }
+
+
+    static deletaStatus = (req, res) => {
+        const { id } = req.params;
+        statusProdutos.findByIdAndDelete(id, (err) => {
+            if (!err) {
+                res.status(200).send({ message: "Status removido com sucesso" })
+            } else {
+                res.send(500).send(err.message)
+            }
+        })
+    }
+
+    
 }
 
 

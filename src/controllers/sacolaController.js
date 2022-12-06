@@ -76,6 +76,20 @@ class SacolaController{
         })
     }
 
+    static atualizarSacola = (req, res) => {
+        const { id } = req.params;
+        sacolas.findByIdAndUpdate(id, { $set: req.body }, (err) => {
+            if (!err) {
+                res.status(200).send({ message: "Sacola atualizada com sucesso" })
+            } else {
+                res.status(500).send({ message: err.message })
+            }
+        })
+    }
+
+
+
+
     
 }
 

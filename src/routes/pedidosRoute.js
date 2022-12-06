@@ -8,6 +8,8 @@ const router = express.Router();
 router
     .get("/pedidos", PedidosController.listaPedidos)
     .post("/pedido",PedidosController.adicionaPedido )
+    .put('/pedido/:id', PedidosController.atualizarPedido)
+    .delete('/pedido/:id', PedidosController.deletaPedido)
 
 
 
