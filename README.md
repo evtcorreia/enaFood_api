@@ -5,11 +5,14 @@ API desenvolvida para sistema de deliverym ENAFOOD
 
 ##  Implementação
 
-    O projeto foi desenvolvido utilizando Javascript,  e o ODM Mongoose  para realizar as conexoes e requisições com o banco de dados MongoDB
-desenvolido utilizando o padrao MVC, a utilização do ODM mongoose se fez necessaria pela sua facilidade em criações de modelo e utilização das conjsultas para o mongoDB.
-    Tambem foi utilizado no sistema o Express que se faz necessario devido as funcionalidade de requisições http, facilitando assim o processo de roteamneto da aplicação 
+    O projeto foi desenvolvido utilizando Javascript,  e o ODM Mongoose  para realizar as conexoes e 
+    requisições com o banco de dados MongoDB o sistema foi  desenvolido utilizando o padrao MVC, a 
+    utilização do ODM mongoose se fez necessaria pela sua facilidade em criações de modelo e utilização das conjsultas para o mongoDB.
+    Tambem foi utilizado no sistema o Express que se faz necessario devido as funcionalidade de 
+    requisições http, facilitando assim o processo de roteamneto da aplicação 
 abaixo teremos uma explicação da aplicação e suass principais funcionalidades
-    O banco de dados utilizando assim como informado anteriromente foi o mongoDB, para utilização foi utilizada uma versão em nuvem pela plataforma Atlas, para execução do projeto 
+    O banco de dados utilizando assim como informado anteriromente foi o mongoDB, para utilização 
+    foi utilizada uma versão em nuvem pela plataforma Atlas, para execução do projeto 
 execute o na porta 3000 atraves do comando npm run dev.
 
 ###  Pré-requisitos
